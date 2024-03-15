@@ -20,4 +20,12 @@
     width: 100%;
 }
 
-
+/* Estilos para el elemento con la clase 'Titulo' */
+.Titulo {
+    /* Centra el texto dentro del elemento */
+    text-align: center;
+    /* Elimina el margen inferior */
+    margin-bottom: 0;
+    /* Agrega un espacio de relleno en la parte superior */
+    padding-top: 20px;
+}
