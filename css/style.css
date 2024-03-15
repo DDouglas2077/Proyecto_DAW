@@ -11,3 +11,13 @@
     /* Añade un relleno alrededor del formulario */
     padding: 20px;
 }
+
+/* Estilos para los botones dentro del formulario de inicio de sesión */
+#login-form button {
+    /* Permite que los botones crezcan para ocupar el espacio disponible */
+    flex-grow: 1;
+    /* Asegúrate de que los botones ocupen todo el ancho disponible */
+    width: 100%;
+}
+
+
