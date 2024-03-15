@@ -35,3 +35,58 @@ function ValidacionJugador() {
     JugadorForm.reset();
     return !querySnapshot.empty;
   }
+
+  const jugadorList = document.getElementById("tablaJugador");
+
+window.addEventListener("DOMContentLoaded", async () => {
+  //Events
+  //Listar si el usuario esta autenticado
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      
+    } else {
+      window.location.href = "../html/index.html";
+    }
+  });
+
+  onGetJugador((querySnapshot) => {
+    jugadorList.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      let player = doc.data();
+      let row = document.createElement("tr");
+      row.innerHTML = `
+          <td>${player.nombre}</td>
+          <td>${player.apellido}</td>
+          <td>${player.edad}</td>
+          <td>${player.email}</td>
+          <td><button type="button" class="btn btn-info btn-editJugador"    data-id='${doc.id}'
+                                                                            data-nombre='${player.nombre}'
+                                                                            data-apellido='${player.apellido}'
+                                                                            data-edad='${player.edad}'
+                                                                            data-email='${player.email}'>Editar</button></td>
+          <td><button type="button" class="btn btn-danger btn-deleteJugador" data-id='${doc.id}'>Eliminar</button></td>
+        `;
+      jugadorList.appendChild(row);
+    });
+    const btnDelete = jugadorList.querySelectorAll(".btn-deleteJugador");
+    btnDelete.forEach((btn) => {
+      btn.addEventListener("click", ({ target: { dataset } }) => {
+        deleteJugador(dataset.id);
+        Swal.fire("Eliminado", "Jugador eliminado con éxito", "success");
+      });
+    });
+
+    const btnEdit = jugadorList.querySelectorAll(".btn-editJugador");
+    btnEdit.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const { id, nombre, apellido, edad, email } = e.target.dataset;
+        document.getElementById("id_jugador").value = id;
+        document.getElementById("jugadorNombre").value = nombre;
+        document.getElementById("jugadorApellido").value = apellido;
+        document.getElementById("jugadorEdad").value = edad;
+        document.getElementById("jugadorEmail").value = email;
+      });
+    });
+  });
+});
+
