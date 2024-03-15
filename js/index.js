@@ -1,3 +1,18 @@
+import {
+    SaveJugador,
+    getJugador,
+    deleteJugador,
+    updateJugador,
+    onGetJugador,
+    db,
+    collection,
+    query,
+    where,
+    onAuthStateChanged,
+    auth,
+    getDocs
+  } from "./main.js";
+  
 function ValidacionJugador() {
     const nombreJug = document.getElementById('jugadorNombre').value;
     const apellidoJug = document.getElementById('jugadorApellido').value;
