@@ -1,0 +1,13 @@
+/* Estilos para el formulario de inicio de sesión */
+#login-form {
+    /* Establece el contenedor del formulario como un contenedor flexible */
+    display: flex;
+    /* Asegura que los elementos fluyan verticalmente dentro del contenedor */
+    flex-direction: column;
+    /* Espacio entre los elementos hijos del contenedor */
+    gap: 10px;
+    /* Asegura que el formulario ocupe todo el ancho disponible */
+    width: 100%;
+    /* Añade un relleno alrededor del formulario */
+    padding: 20px;
+}
