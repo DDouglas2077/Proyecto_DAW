@@ -90,3 +90,33 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+JugadorForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+  
+    if (ValidacionJugador()) {
+      const idJugador = document.getElementById("id_jugador").value;
+      const nombreJug = document.getElementById("jugadorNombre").value;
+      const apellidoJug = document.getElementById("jugadorApellido").value;
+      const edadJug = document.getElementById("jugadorEdad").value;
+      const emailJug = document.getElementById("jugadorEmail").value;
+  
+      if (idJugador === "") {
+        if (await emailExists(emailJug)) {
+          Swal.fire("Error", "Este correo electrónico ya está registrado", "error");
+          return;
+        }
+        SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
+        Swal.fire("Guardado", "Jugador guardado con éxito", "success");
+      } else {
+        updateJugador(idJugador, {
+          apellido: apellidoJug,
+          edad: edadJug,
+          email: emailJug,
+          nombre: nombreJug,
+        });
+        Swal.fire("Actualizado", "Jugador actualizado con éxito", "success");
+      }
+  
+      JugadorForm.reset();
+    }
+  });
