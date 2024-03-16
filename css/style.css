@@ -70,3 +70,22 @@
     /* Permite que el elemento sea un bloque en línea */
     display: inline-block;
 }
+
+
+/* Estilos para justificar texto */
+.justified-text {
+    text-align: justify;
+}
+
+
+/* Estilos para imágenes dentro de tarjetas */
+.card-img-custom {
+    /* Altura fija para las imágenes */
+    height: 200px;
+}
+
+/* Estilos para el elemento HTML */
+html {
+    /* Establece la altura del elemento HTML al 100% de la ventana */
+    height: 100%;
+}
