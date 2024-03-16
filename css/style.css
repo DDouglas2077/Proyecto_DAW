@@ -81,11 +81,24 @@
 /* Estilos para imágenes dentro de tarjetas */
 .card-img-custom {
     /* Altura fija para las imágenes */
-    height: 200px;
+    height: 300px;
+    /* Controla cómo se ajusta la imagen dentro del contenedor */
+    object-fit: cover;
 }
+
 
 /* Estilos para el elemento HTML */
 html {
     /* Establece la altura del elemento HTML al 100% de la ventana */
     height: 100%;
+}
+
+
+/* Estilos para el body de la página */
+body {
+    /* Establece el cuerpo como un contenedor flexible con dirección de columna */
+    display: flex;
+    flex-direction: column;
+    /* Establece la altura del cuerpo al 100% de la ventana */
+    height: 100vh;
 }
