@@ -102,3 +102,10 @@ body {
     /* Establece la altura del cuerpo al 100% de la ventana */
     height: 100vh;
 }
+
+
+/* Estilos para el pie de página */
+footer {
+    /* Mueve el pie de página hacia la parte inferior de la página */
+    margin-top: auto;
+}
