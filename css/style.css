@@ -48,5 +48,8 @@
 .fas.fa-user {
     /* Tamaño del icono */
     font-size: 1.2em;
-   
+    /* Color del icono */
+    color: white;
+    /* Margen a la derecha para separar el icono de otros elementos */
+    margin-right: 5px;
 }
