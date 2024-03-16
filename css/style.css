@@ -53,3 +53,20 @@
     /* Margen a la derecha para separar el icono de otros elementos */
     margin-right: 5px;
 }
+
+
+/* Estilos para el texto con la clase 'negro' */
+.negro {
+    /* Color del texto */
+    color: black;
+    /* Tamaño de la fuente */
+    font-size: 75px;
+    /* Tipo de fuente */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Color de fondo con transparencia */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Espaciado interno */
+    padding: 12px;
+    /* Permite que el elemento sea un bloque en línea */
+    display: inline-block;
+}
