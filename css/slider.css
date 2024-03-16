@@ -1,0 +1,9 @@
+/* Estilos para el contenedor del slider */
+.slider {
+    padding-top: 3%;
+    width: 95%;
+    /* Centra el slider horizontalmente */
+    margin: auto;
+    /* Oculta el desbordamiento horizontal */
+    overflow: hidden;
+}
