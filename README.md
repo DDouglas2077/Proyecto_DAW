@@ -15,9 +15,9 @@ Este proyecto es una plataforma para organizar y participar en torneos de ping-p
 
 ## Funcionalidades
 
-- **Registro de Jugadores**: Los jugadores pueden registrarse con su información básica.
-- **Inicio de Sesión**: Los jugadores pueden iniciar sesión en sus cuentas existentes.
-- **Creación de Equipos**: Los jugadores pueden formar equipos con otros jugadores registrados.
+- **Registro de Jugadores**: Registra jugadores con su información básica.
+- **Inicio de Sesión**: Inicia sesión en cuentas existentes.
+- **Creación de Equipos**: Forma equipos con otros jugadores registrados.
 - **Creación de Torneos**: Los administradores pueden crear torneos, establecer reglas y fechas, y gestionar inscripciones.
 - **Participación en Torneos**: Los jugadores pueden inscribirse en torneos y competir con otros equipos.
 
@@ -26,7 +26,11 @@ Este proyecto es una plataforma para organizar y participar en torneos de ping-p
 - HTML5
 - CSS3
 - JavaScript (con jQuery para la interactividad)
-- Plataforma de backend para el almacenamiento de datos y la autenticación de usuarios.
+- Plataforma de backend para almacenamiento de datos y autenticación de usuarios.
+
+### Mockups
+
+Aquí se muestran los mockups del diseño de la interfaz de usuario:
 
 ## Créditos
 
@@ -36,4 +40,3 @@ Este proyecto fue desarrollado por:
 -Hector Guevara
 -Miguel Urrutia. 
 -Camila Castillo.
-
