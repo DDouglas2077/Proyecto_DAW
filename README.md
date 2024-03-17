@@ -6,12 +6,12 @@ Este proyecto es una plataforma para organizar y participar en torneos de ping-p
 
 ## Contenido del Proyecto
 
-- **index.html**: Página principal de la plataforma. Permite a los usuarios registrarse, iniciar sesión y acceder a las funcionalidades principales.
-- **jugadores.html**: Página que muestra una lista de jugadores registrados y sus perfiles.
-- **torneos.html**: Página que muestra los torneos en curso y próximos, así como los resultados de los torneos anteriores.
-- **/css**: Directorio que contiene archivos CSS para estilizar las páginas HTML.
-- **/js**: Directorio que contiene archivos JavaScript para la lógica del cliente.
-- **/img**: Directorio que contiene imágenes y otros recursos multimedia utilizados en el proyecto.
+- **index.html**: Página principal del sistema.
+- **jugadores.html**: Lista de jugadores registrados y sus perfiles.
+- **torneos.html**: Muestra los torneos en curso y próximos, así como los resultados de torneos anteriores.
+- **/css**: Archivos CSS para estilizar las páginas HTML.
+- **/js**: Archivos JavaScript para la lógica del cliente.
+- **/img**: Imágenes y recursos multimedia.
 
 ## Funcionalidades
 
@@ -27,3 +27,13 @@ Este proyecto es una plataforma para organizar y participar en torneos de ping-p
 - CSS3
 - JavaScript (con jQuery para la interactividad)
 - Plataforma de backend para el almacenamiento de datos y la autenticación de usuarios.
+
+## Créditos
+
+Este proyecto fue desarrollado por:
+-Andrea Lopez.
+-Douglas Mejia.
+-Hector Guevara
+-Miguel Urrutia. 
+-Camila Castillo.
+
