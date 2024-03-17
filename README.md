@@ -12,3 +12,18 @@ Este proyecto es una plataforma para organizar y participar en torneos de ping-p
 - **/css**: Directorio que contiene archivos CSS para estilizar las páginas HTML.
 - **/js**: Directorio que contiene archivos JavaScript para la lógica del cliente.
 - **/img**: Directorio que contiene imágenes y otros recursos multimedia utilizados en el proyecto.
+
+## Funcionalidades
+
+- **Registro de Jugadores**: Los jugadores pueden registrarse con su información básica.
+- **Inicio de Sesión**: Los jugadores pueden iniciar sesión en sus cuentas existentes.
+- **Creación de Equipos**: Los jugadores pueden formar equipos con otros jugadores registrados.
+- **Creación de Torneos**: Los administradores pueden crear torneos, establecer reglas y fechas, y gestionar inscripciones.
+- **Participación en Torneos**: Los jugadores pueden inscribirse en torneos y competir con otros equipos.
+
+## Tecnologías Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript (con jQuery para la interactividad)
+- Plataforma de backend para el almacenamiento de datos y la autenticación de usuarios.
