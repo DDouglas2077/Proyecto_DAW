@@ -35,8 +35,8 @@ Aquí se muestran los mockups del diseño de la interfaz de usuario:
 ## Créditos
 
 Este proyecto fue desarrollado por:
--Andrea Lopez.
--Douglas Mejia.
--Hector Guevara
--Miguel Urrutia. 
--Camila Castillo.
+-**Andrea Lopez**.
+-**Douglas Mejia**.
+-**Hector Guevara**.
+-**Miguel Urrutia**. 
+-**Camila Castillo**.
