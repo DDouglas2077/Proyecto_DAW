@@ -25,17 +25,16 @@ import {
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCWJAaqh3RQtIGpT7f9QGhCSsvYcFv7fXc",
-  authDomain: "pingpong-79d2f.firebaseapp.com",
-  projectId: "pingpong-79d2f",
-  storageBucket: "pingpong-79d2f.appspot.com",
-  messagingSenderId: "568323009332",
-  appId: "1:568323009332:web:0f6f37f1e6c0d0b1eb1361",
-  measurementId: "G-KCZJYV8SGS",
-};
-
+    apiKey: "AIzaSyAHcot_9bQUbMlJaW-9xwQuwJIPILNkmrQ",
+    authDomain: "pingpong-ae537.firebaseapp.com",
+    projectId: "pingpong-ae537",
+    storageBucket: "pingpong-ae537.appspot.com",
+    messagingSenderId: "860830730183",
+    appId: "1:860830730183:web:d8cbfa04eb47501dfe7be2",
+    measurementId: "G-XRWELWNQP0"
+  };
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

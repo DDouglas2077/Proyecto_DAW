@@ -109,13 +109,10 @@ footer.innerHTML = `<div class="container">
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="text-white text-decoration-none">
+                            <a class="text-white text-decoration-none" href="https://github.com/DDouglas2077/Proyecto_DAW">
                                 <i class="fab fa-github me-2"></i>GITHUB
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="text-white text-decoration-none"
-                                <i class="fab fa-trello me-2"></i>TRELLO
                             </a>
                         </li>
                     </ul>
