@@ -97,7 +97,7 @@ header.innerHTML = `<!--Nav-->
 footer.innerHTML = `<div class="container">
             <div class="row mb-3">
                 <div class="col-12">
-                    <p class="text-uppercase fw-bold mb-0">©Proyecto de Cátedra - 2023</p>
+                    <p class="text-uppercase fw-bold mb-0">©Proyecto de Cátedra - 2024</p>
                 </div>
             </div>
             <div class="row">
