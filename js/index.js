@@ -1,57 +1,57 @@
-import { 
-    SaveJugador,
-    getJugador,
-    deleteJugador,
-    updateJugador,
-    onGetJugador,
-    db,
-    collection,
-    query,
-    where,
-    onAuthStateChanged,
-    auth,
-    getDocs
-  } from "./main.js";
-  
+import {
+  SaveJugador,
+  getJugador,
+  deleteJugador,
+  updateJugador,
+  onGetJugador,
+  db,
+  collection,
+  query,
+  where,
+  onAuthStateChanged,
+  auth,
+  getDocs
+} from "./main.js";
+
 function ValidacionJugador() {
-    const nombreJug = document.getElementById('jugadorNombre').value;
-    const apellidoJug = document.getElementById('jugadorApellido').value;
-    const edadJug = document.getElementById('jugadorEdad').value;
-    const emailJug = document.getElementById('jugadorEmail').value;
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  
-    if (!isNaN(nombreJug) || nombreJug.trim() === "") {
-        Swal.fire("Error", "Debe ingresar un nombre para el jugador", "error");
-        return false;
-    }
-  
-    if (!isNaN(apellidoJug) || apellidoJug.trim() === "") {
-        Swal.fire("Error", "Debe ingresar un apellido para el jugador", "error");
-        return false;
-    }
-  
-    if (isNaN(edadJug) || edadJug.trim() === "" || edadJug <= 0) {
-        Swal.fire("Error", "Debe ingresar una edad válida para el jugador", "error");
-        return false;
-    }
-  
-    if (!emailRegex.test(emailJug)) {
-        Swal.fire("Error", "Debe ingresar un e-mail válido", "error");
-        return false;
-    }
-  
-    return true;
-  }
-  const JugadorForm = document.getElementById("Jugador-Form");
-  async function emailExists(email) {
-    const jugadorCollection = collection(db, "Jugador");
-    const query2 = query(jugadorCollection, where("email", "==", email));
-    const querySnapshot = await getDocs(query2);
-    JugadorForm.reset();
-    return !querySnapshot.empty;
+  const nombreJug = document.getElementById('jugadorNombre').value;
+  const apellidoJug = document.getElementById('jugadorApellido').value;
+  const edadJug = document.getElementById('jugadorEdad').value;
+  const emailJug = document.getElementById('jugadorEmail').value;
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+  if (!isNaN(nombreJug) || nombreJug.trim() === "") {
+      Swal.fire("Error", "Debe ingresar un nombre para el jugador", "error");
+      return false;
   }
 
-  const jugadorList = document.getElementById("tablaJugador");
+  if (!isNaN(apellidoJug) || apellidoJug.trim() === "") {
+      Swal.fire("Error", "Debe ingresar un apellido para el jugador", "error");
+      return false;
+  }
+
+  if (isNaN(edadJug) || edadJug.trim() === "" || edadJug <= 0) {
+      Swal.fire("Error", "Debe ingresar una edad válida para el jugador", "error");
+      return false;
+  }
+
+  if (!emailRegex.test(emailJug)) {
+      Swal.fire("Error", "Debe ingresar un e-mail válido", "error");
+      return false;
+  }
+
+  return true;
+}
+const JugadorForm = document.getElementById("Jugador-Form");
+async function emailExists(email) {
+  const jugadorCollection = collection(db, "Jugador");
+  const query2 = query(jugadorCollection, where("email", "==", email));
+  const querySnapshot = await getDocs(query2);
+  JugadorForm.reset();
+  return !querySnapshot.empty;
+}
+
+const jugadorList = document.getElementById("tablaJugador");
 
 window.addEventListener("DOMContentLoaded", async () => {
   //Events
@@ -105,33 +105,35 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+
+
 JugadorForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-  
-    if (ValidacionJugador()) {
-      const idJugador = document.getElementById("id_jugador").value;
-      const nombreJug = document.getElementById("jugadorNombre").value;
-      const apellidoJug = document.getElementById("jugadorApellido").value;
-      const edadJug = document.getElementById("jugadorEdad").value;
-      const emailJug = document.getElementById("jugadorEmail").value;
-  
-      if (idJugador === "") {
-        if (await emailExists(emailJug)) {
-          Swal.fire("Error", "Este correo electrónico ya está registrado", "error");
-          return;
-        }
-        SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
-        Swal.fire("Guardado", "Jugador guardado con éxito", "success");
-      } else {
-        updateJugador(idJugador, {
-          apellido: apellidoJug,
-          edad: edadJug,
-          email: emailJug,
-          nombre: nombreJug,
-        });
-        Swal.fire("Actualizado", "Jugador actualizado con éxito", "success");
+  e.preventDefault();
+
+  if (ValidacionJugador()) {
+    const idJugador = document.getElementById("id_jugador").value;
+    const nombreJug = document.getElementById("jugadorNombre").value;
+    const apellidoJug = document.getElementById("jugadorApellido").value;
+    const edadJug = document.getElementById("jugadorEdad").value;
+    const emailJug = document.getElementById("jugadorEmail").value;
+
+    if (idJugador === "") {
+      if (await emailExists(emailJug)) {
+        Swal.fire("Error", "Este correo electrónico ya está registrado", "error");
+        return;
       }
-  
-      JugadorForm.reset();
+      SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
+      Swal.fire("Guardado", "Jugador guardado con éxito", "success");
+    } else {
+      updateJugador(idJugador, {
+        apellido: apellidoJug,
+        edad: edadJug,
+        email: emailJug,
+        nombre: nombreJug,
+      });
+      Swal.fire("Actualizado", "Jugador actualizado con éxito", "success");
     }
-  });
+
+    JugadorForm.reset();
+  }
+});
