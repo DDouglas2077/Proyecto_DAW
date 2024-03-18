@@ -86,7 +86,7 @@ header.innerHTML = `<!--Nav-->
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary btn-block">Inicia Sesion</button>
-                    <button type="button" class="btn btn-info btn-block" id="googleLogin">Inicia Sesion con
+                    <button type="button" class="btn btn-info btn-block" id="googleLogin">Inicia Sesión con
                         Google</button>
                 </form>
             </div>
