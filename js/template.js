@@ -105,7 +105,7 @@ footer.innerHTML = `<div class="container">
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <a class="text-white text-decoration-none" href="Contactanos.html">
-                                <i class="fas fa-envelope me-2"></i>CONTACTANOS
+                                <i class="fas fa-envelope me-2"></i>CONTÁCTANOS
                             </a>
                         </li>
                         <li class="list-inline-item">
