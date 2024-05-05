@@ -34,15 +34,16 @@ function ValidacionTorneo() {
 
     return true;
 }
+
 const torneoList = document.getElementById("tablaTorneo");
 window.addEventListener("DOMContentLoaded", async () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-          
+
         } else {
-          window.location.href = "../html/index.html";
+            window.location.href = "../html/index.html";
         }
-      });
+    });
     onGetTorneo((querySnapshot) => {
         torneoList.innerHTML = "";
         querySnapshot.forEach((doc) => {
