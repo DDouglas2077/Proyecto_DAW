@@ -148,3 +148,59 @@ window.addEventListener("DOMContentLoaded", async () => {
                 });
             });
         });
+         // Botones para editar
+        const btnEdit = partidosList.querySelectorAll(".btn-editPartido");
+        btnEdit.forEach((btn) => {
+            btn.addEventListener("click", ({ target: { dataset } }) => {
+                document.getElementById("id_partidos").value = dataset.id;
+                document.getElementById("selectTorneo").value = dataset.nombretorneo;
+                document.getElementById("selectJugador1").value = dataset.nombrejugador1;
+                document.getElementById("selectJugador2").value = dataset.nombrejugador2;
+                document.getElementById("fechaEmision").value = dataset.fechaemision;
+                document.getElementById("horaInicio").value = dataset.horainicio;
+                 });
+        });
+    });
+
+})
+const PartidosForm = document.getElementById("Partidos-Form");
+
+PartidosForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+    // Obtener valores del formulario
+    if (ValidacionPartidos()) {
+        const idPartidos = document.getElementById("id_partidos").value;
+        const nombreTorneo = document.getElementById("selectTorneo").value;
+        const nombreJugador1 = document.getElementById("selectJugador1").value;
+        const nombreJugador2 = document.getElementById("selectJugador2").value;
+        const fechaEmision = document.getElementById("fechaEmision").value;
+        const horaInicio = document.getElementById("horaInicio").value;
+        
+        // Verificar si se trata de un nuevo partido
+        if (idPartidos === '') {
+            SavePartidos(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio);
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: 'Partido guardado con éxito'
+            });
+        } else {
+            updatePartido(idPartidos, {
+                nombreTorneo,
+                nombreJugador1,
+                nombreJugador2,
+                fechaEmision,
+                horaInicio,
+            });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: 'Partido actualizado con éxito'
+            });
+        }
+    }
+
+        // Restablecer el formulario (opcional)
+        document.getElementById("Partidos-Form").reset();
+    });
