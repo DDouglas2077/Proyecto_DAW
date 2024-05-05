@@ -60,7 +60,7 @@ Aquí se muestran los mockups del diseño de la interfaz de usuario:
 
 Este proyecto fue desarrollado por:
 
-- Andrea Lopez
+- Andrea López
 - Douglas Mejia
 - Hector Guevara
 - Miguel Urrutia
