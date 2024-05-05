@@ -41,4 +41,12 @@ function ValidacionPartidos() {
         });
         return false;
      }
+    if (!fechaEmision){
+        Swal.fire({
+            icon: 'error',
+            title: 'Ups...',
+            text: 'Debe ingresar una fecha de emisión'
+        });
+        return false;
+     }
 }
