@@ -15,40 +15,46 @@ function ValidacionPartidos() {
     const nombreJugador2 = document.getElementById("selectJugador2").value;
     const fechaEmision = document.getElementById("fechaEmision").value;
     const horaInicio = document.getElementById("horaInicio").value;
+    const nombreGanador = document.getElementById("selectGanador").value;
+    const resultadoJug1 = document.getElementById("resultado1").value;
+    const resultadoJug2 = document.getElementById("resultado2").value;
 
     if (!nombreTorneo) {
         Swal.fire({
             icon: 'error',
-            title: 'Ups',
-            text: 'Seleccione un torneo',
+            title: 'Oops...',
+            text: 'Debe seleccionar un torneo'
         });
         return false;
     }
+
     if (!nombreJugador1 || !nombreJugador2) {
         Swal.fire({
             icon: 'error',
-            title: 'Ups',
-            text: 'Seleccione ambos jugadores',
-
+            title: 'Oops...',
+            text: 'Debe seleccionar ambos jugadores'
         });
         return false;
     }
+
     if (nombreJugador1 === nombreJugador2) {
         Swal.fire({
             icon: 'error',
-            title: 'Ups',
-            text: 'Los jugadores deben ser diferentes',
+            title: 'Oops...',
+            text: 'Los jugadores deben ser diferentes'
         });
         return false;
     }
+
     if (!fechaEmision) {
         Swal.fire({
             icon: 'error',
-            title: 'Ups...',
+            title: 'Oops...',
             text: 'Debe ingresar una fecha de emisión'
         });
         return false;
     }
+
     if (!horaInicio) {
         Swal.fire({
             icon: 'error',
@@ -57,7 +63,27 @@ function ValidacionPartidos() {
         });
         return false;
     }
+
+    if (!nombreGanador) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe seleccionar un ganador'
+        });
+        return false;
+    }
+
+    if (resultadoJug1.trim() === "" || resultadoJug2.trim() === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar el resultado para ambos jugadores'
+        });
+        return false;
+    }
+    return true;
 }
+
 const partidosList = document.getElementById("tablaPartido");
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -85,6 +111,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             torneocmb.appendChild(option); // Añade la opción al combobox
         });
     });
+
     onGetJugador((querySnapshot) => {
         let selectJugador1 = document.getElementById("selectJugador1");
         let selectJugador2 = document.getElementById("selectJugador2");
@@ -117,6 +144,28 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     var selectJugador1 = document.getElementById('selectJugador1');
     var selectJugador2 = document.getElementById('selectJugador2');
+    var selectGanador = document.getElementById('selectGanador');
+
+    function actualizarGanador() {
+        // Obtener los jugadores seleccionados
+        var jugador1 = selectJugador1.value;
+        var jugador2 = selectJugador2.value;
+
+        // Limpiar las opciones anteriores del select de Ganador
+        selectGanador.innerHTML = '';
+
+        // Agregar las nuevas opciones
+        if (jugador1) {
+            selectGanador.appendChild(new Option(jugador1, jugador1));
+        }
+        if (jugador2) {
+            selectGanador.appendChild(new Option(jugador2, jugador2));
+        }
+    }
+
+    // Eventos change para Jugador 1 y Jugador 2
+    selectJugador1.addEventListener('change', actualizarGanador);
+    selectJugador2.addEventListener('change', actualizarGanador);
 
     onGetPartido((querySnapshot) => {
         partidosList.innerHTML = ""; // Asegúrate de que partidosList sea el ID de tu elemento de lista de partidos
@@ -128,11 +177,19 @@ window.addEventListener("DOMContentLoaded", async () => {
               <td>${partido.nombreJugador1} vs ${partido.nombreJugador2}</td>
               <td>${partido.fechaEmision}</td>
               <td>${partido.horaInicio}</td>
-               <td><button type="button" class="btn btn-info btn-editPartido" data-id='${doc.id}' data-nombreTorneo='${partido.nombreTorneo}'data-nombreJugador1='${partido.nombreJugador1}'
+              <td>${partido.nombreGanador}</td>
+              <td>${partido.resultadoJug1} - ${partido.resultadoJug2}</td>
+              <td><button type="button" class="btn btn-info btn-editPartido"    data-id='${doc.id}'
+                                                                                data-nombreTorneo='${partido.nombreTorneo}'
+                                                                                data-nombreJugador1='${partido.nombreJugador1}'
                                                                                 data-nombreJugador2='${partido.nombreJugador2}'
                                                                                 data-fechaEmision='${partido.fechaEmision}'
-                                                                                data-horaInicio='${partido.horaInicio}' Editar</button></td>
-              <td><button type="button" class="btn btn-danger btn-deletePartido" data-id='${doc.id}'>Eliminar</button></td>`;
+                                                                                data-horaInicio='${partido.horaInicio}'
+                                                                                data-nombreGanador='${partido.nombreGanador}'
+                                                                                data-resultadoJug1='${partido.resultadoJug1}'
+                                                                                data-resultadoJug2='${partido.resultadoJug2}'>Editar</button></td>
+              <td><button type="button" class="btn btn-danger btn-deletePartido" data-id='${doc.id}'>Eliminar</button></td>
+            `;
             partidosList.appendChild(row);
         });
 
@@ -148,6 +205,7 @@ window.addEventListener("DOMContentLoaded", async () => {
                 });
             });
         });
+
         // Botones para editar
         const btnEdit = partidosList.querySelectorAll(".btn-editPartido");
         btnEdit.forEach((btn) => {
@@ -158,11 +216,17 @@ window.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("selectJugador2").value = dataset.nombrejugador2;
                 document.getElementById("fechaEmision").value = dataset.fechaemision;
                 document.getElementById("horaInicio").value = dataset.horainicio;
+                document.getElementById("resultado1").value = dataset.resultadojug1;
+                document.getElementById("resultado2").value = dataset.resultadojug2;
+
+                selectJugador1.addEventListener('change', actualizarGanador);
+                selectJugador2.addEventListener('change', actualizarGanador);
             });
         });
     });
 
 })
+
 const PartidosForm = document.getElementById("Partidos-Form");
 
 PartidosForm.addEventListener("submit", function (event) {
@@ -176,10 +240,13 @@ PartidosForm.addEventListener("submit", function (event) {
         const nombreJugador2 = document.getElementById("selectJugador2").value;
         const fechaEmision = document.getElementById("fechaEmision").value;
         const horaInicio = document.getElementById("horaInicio").value;
+        const nombreGanador = document.getElementById("selectGanador").value;
+        const resultadoJug1 = document.getElementById("resultado1").value;
+        const resultadoJug2 = document.getElementById("resultado2").value;
 
         // Verificar si se trata de un nuevo partido
         if (idPartidos === '') {
-            SavePartidos(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio);
+            SavePartidos(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio, nombreGanador, resultadoJug1, resultadoJug2);
             Swal.fire({
                 icon: 'success',
                 title: '¡Hecho!',
@@ -192,6 +259,9 @@ PartidosForm.addEventListener("submit", function (event) {
                 nombreJugador2,
                 fechaEmision,
                 horaInicio,
+                nombreGanador,
+                resultadoJug1,
+                resultadoJug2
             });
             Swal.fire({
                 icon: 'success',
@@ -201,6 +271,6 @@ PartidosForm.addEventListener("submit", function (event) {
         }
     }
 
-    // Restablecer el formulario (opcional)
-    document.getElementById("Partidos-Form").reset();
-});
+        // Restablecer el formulario (opcional)
+        document.getElementById("Partidos-Form").reset();
+    });
