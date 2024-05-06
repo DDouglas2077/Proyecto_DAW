@@ -7,7 +7,7 @@ import {
     onGetJugador,
     onGetTorneo,
     auth
-} from "./main";
+} from "./main.js";
 
 function ValidacionPartidos() {
     const nombreTorneo = document.getElementById("selectTorneo").value;
