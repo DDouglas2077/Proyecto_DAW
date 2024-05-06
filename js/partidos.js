@@ -1,4 +1,4 @@
-import{
+import {
     SavePartidos,
     deletePartido,
     updatePartido,
@@ -16,7 +16,7 @@ function ValidacionPartidos() {
     const fechaEmision = document.getElementById("fechaEmision").value;
     const horaInicio = document.getElementById("horaInicio").value;
 
-    if (!nombreTorneo){
+    if (!nombreTorneo) {
         Swal.fire({
             icon: 'error',
             title: 'Ups',
@@ -24,7 +24,7 @@ function ValidacionPartidos() {
         });
         return false;
     }
-     if (!nombreJugador1 || !nombreJugador2){
+    if (!nombreJugador1 || !nombreJugador2) {
         Swal.fire({
             icon: 'error',
             title: 'Ups',
@@ -32,24 +32,24 @@ function ValidacionPartidos() {
 
         });
         return false;
-     }
-     if(nombreJugador1 === nombreJugador2){
+    }
+    if (nombreJugador1 === nombreJugador2) {
         Swal.fire({
             icon: 'error',
             title: 'Ups',
             text: 'Los jugadores deben ser diferentes',
         });
         return false;
-     }
-    if (!fechaEmision){
+    }
+    if (!fechaEmision) {
         Swal.fire({
             icon: 'error',
             title: 'Ups...',
             text: 'Debe ingresar una fecha de emisión'
         });
         return false;
-     }
-     if (!horaInicio) {
+    }
+    if (!horaInicio) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         defaultOption.value = "";
         torneocmb.appendChild(defaultOption); // Agrega una opción predeterminada
 
-         querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc) => {
             let torneo = doc.data();
             let option = document.createElement("option");
             option.textContent = torneo.nombre; // Establece el texto del combobox como el nombre del torneo
@@ -91,7 +91,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         selectJugador1.innerHTML = ""; // Limpia el combobox antes de agregar nuevos elementos
         selectJugador2.innerHTML = ""; // Limpia el segundo combobox
 
-         // Agrega una opción predeterminada para ambos comboboxes
+        // Agrega una opción predeterminada para ambos comboboxes
         ["selectJugador1", "selectJugador2"].forEach(selectId => {
             let defaultOption = document.createElement("option");
             defaultOption.textContent = "Seleccione un jugador";
@@ -135,8 +135,8 @@ window.addEventListener("DOMContentLoaded", async () => {
               <td><button type="button" class="btn btn-danger btn-deletePartido" data-id='${doc.id}'>Eliminar</button></td>`;
             partidosList.appendChild(row);
         });
-        
- // Botones para eliminar
+
+        // Botones para eliminar
         const btnDelete = partidosList.querySelectorAll(".btn-deletePartido");
         btnDelete.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
@@ -148,7 +148,7 @@ window.addEventListener("DOMContentLoaded", async () => {
                 });
             });
         });
-         // Botones para editar
+        // Botones para editar
         const btnEdit = partidosList.querySelectorAll(".btn-editPartido");
         btnEdit.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
@@ -158,7 +158,7 @@ window.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("selectJugador2").value = dataset.nombrejugador2;
                 document.getElementById("fechaEmision").value = dataset.fechaemision;
                 document.getElementById("horaInicio").value = dataset.horainicio;
-                 });
+            });
         });
     });
 
@@ -176,7 +176,7 @@ PartidosForm.addEventListener("submit", function (event) {
         const nombreJugador2 = document.getElementById("selectJugador2").value;
         const fechaEmision = document.getElementById("fechaEmision").value;
         const horaInicio = document.getElementById("horaInicio").value;
-        
+
         // Verificar si se trata de un nuevo partido
         if (idPartidos === '') {
             SavePartidos(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio);
@@ -201,6 +201,6 @@ PartidosForm.addEventListener("submit", function (event) {
         }
     }
 
-        // Restablecer el formulario (opcional)
-        document.getElementById("Partidos-Form").reset();
-    });
+    // Restablecer el formulario (opcional)
+    document.getElementById("Partidos-Form").reset();
+});
