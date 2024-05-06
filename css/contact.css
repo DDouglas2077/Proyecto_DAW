@@ -1,10 +1,11 @@
 .body-style {
     font-family: 'Arial', sans-serif;
     background-color: #eaeaea;
-    background-image: url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://i.pinimg.com/564x/31/7c/a0/317ca0b7456f41b1d215215475eed80c.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    position: relative;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,6 +13,22 @@
     justify-content: space-between;
     height: 100vh;
 }
+
+.body-style::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('https://i.pinimg.com/564x/31/7c/a0/317ca0b7456f41b1d215215475eed80c.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(4px);
+    z-index: -1;
+}
+
 
 .header-style {
     margin-bottom: 30px;
@@ -27,7 +44,7 @@
 
 .container-style {
     max-width: 650px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     padding: 40px 80px;
@@ -70,7 +87,7 @@
     color: #000000;
     font-weight: bold;
     text-decoration: none;
-    background-color: #eff0f1;
+    background-color: #b2c3d3;
     padding: 5px 15px;
     border-radius: 20px;
     transition: background-color 0.3s;
